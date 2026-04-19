@@ -1,0 +1,121 @@
+# ------------------------------------------
+# 1. Flutter / Dart / Pub
+# ------------------------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+.metadata
+# 排除本地依赖覆盖文件
+pubspec_overrides.yaml
+
+# build 目录
+build/
+**/build/
+
+# 其他 Flutter 杂项
+flutter_*.png
+/coverage/
+**/*.symbols
+**/*.map.json
+
+# Web 自动生成注册文件
+lib/generated_plugin_registrant.dart
+
+# ------------------------------------------
+# 2. Android 原生相关
+# ------------------------------------------
+android/local.properties
+android/key.properties
+android/app/captured_screenshots/
+
+# 排除 Android Studio 默认生成的构建目录
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Gradle & Kotlin 缓存
+**/.gradle/
+**/.kotlin/
+**/android/captures/
+
+# Android 原生 C++ 构建缓存 (针对 media_kit 等包含原生代码的插件)
+**/.cxx/
+
+# ------------------------------------------
+# 3. iOS / macOS 相关
+# ------------------------------------------
+**/ios/Pods/
+**/macos/Pods/
+.symlinks/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/.last_build_id
+**/macos/Flutter/ephemeral/
+
+# iOS/macOS 编译产物与中间件
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.*
+ios/ServiceDefinitions.json
+
+# ------------------------------------------
+# 4. 桌面端 (Windows / Linux)
+# ------------------------------------------
+**/windows/flutter/ephemeral/
+**/linux/flutter/ephemeral/
+
+# 排除二进制、工程配置与编译中间产物
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ninja
+*.cmake
+CMakeSettings.json
+CMakeUsers.txt
+
+# ------------------------------------------
+# 5. IDE / 编辑器相关
+# ------------------------------------------
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
+# 其他编辑器临时文件
+.atom/
+migrate_working_dir/
+
+# ------------------------------------------
+# 6. 操作系统生成文件
+# ------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ------------------------------------------
+# 7. 脚本与临时文件
+# ------------------------------------------
+*.class
+*.log
+*.pyc
+*.swp
+.build/
+.buildlog/
+.svn/
+.swiftpm/
