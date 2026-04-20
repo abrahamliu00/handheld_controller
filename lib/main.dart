@@ -101,11 +101,11 @@ class RobotControllerApp extends StatelessWidget {
         primaryColor: Colors.black,
         fontFamily: null,
         fontFamilyFallback: const [
-          '.SF Pro Display',  // macOS/iOS 优先
+          '.SF Pro Display',  // macOS/iOS 简体中文
           'Microsoft YaHei', // Windows 简体中文
           'PingFang SC',     // macOS/iOS 简体中文
           'Noto Sans SC',    // Android/Linux 简体中文
-          'sans-serif',      // 最终兜底
+          'sans-serif',
         ],
       ),
       home: const ControllerHomePage(),
@@ -191,7 +191,6 @@ class _ControllerHomePageState extends State<ControllerHomePage> {
     _timer?.cancel();
     if (!kIsWeb) _udpSocket?.close();
 
-    // 👈 纯粹的清理调用，没有任何 UI 副作用
     _safelyDisposeVideo();
 
     _ipController.dispose();
@@ -201,7 +200,6 @@ class _ControllerHomePageState extends State<ControllerHomePage> {
     super.dispose();
   }
 
-  // 👈 纯净的清理方法，只负责内存回收，不夹带 setState
   Future<void> _safelyDisposeVideo() async {
     try {
       final p = _player;
@@ -221,7 +219,6 @@ class _ControllerHomePageState extends State<ControllerHomePage> {
       _timer?.cancel();
       if (!kIsWeb) _udpSocket?.close();
 
-      // 👈 主动断开连接时，先清理内存，然后由调用方自己决定刷新 UI
       await _safelyDisposeVideo();
       if (mounted) setState(() {});
       return;
@@ -301,7 +298,6 @@ class _ControllerHomePageState extends State<ControllerHomePage> {
     } catch (e) {
       _timer?.cancel();
 
-      // 👈 异常断开时，也由调用方自己刷新 UI 清理残影
       await _safelyDisposeVideo();
       if (mounted)
         setState(() {
